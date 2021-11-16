@@ -1,30 +1,85 @@
 ---
-title: "no title now"
+title: "The Report About Incarcentration in the United State"
 author: "Bella Ge"
-date: "11/13/2021"
+date: "11/15/2021"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r include = FALSE}
+library("knitr")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r include = FALSE}
+source("analysis.R")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Introduction
+
+The **problem domain** in this report is comparing the disproportionate incarceration between black people and white people in jail in the United State. As we know, there is a difference in the proportion of different people of color in jail. Therefore, I am curious about which county in the United State has the most severe issue of disproportion in black and white people in jail. 
+
+The **measure** of incarceration I am going to focus on is the jail incarceration.
+
+The **variables** I am going to use in this analysis are _**years, county_name, white_jail_pop, black_jail_pop, total_jail_pop.**_ I decides to use white_jail_pop, black_jail_pop, and total_jail_pop, because I want to clearly show the discrepancy in the population count of white people and black people in jail. Also, I select years because I need to use it to track the **changes** in the population count of white people and black people in jail. I choose county_name as the fifth variable since I want to find which county has **the most disproportionate incarceration** between black people and white people.
+
+## Summary Information
+ Below, there are eight values that I calculated using DPLYR skills. With the variables that I choose, I firstly can get the year when the highest jail population occurred in the United State, which is **1993**. In 1993, the number of jail incarceration reached its highest point. In this year, the population of black people and white people also reached the highest point. There were about **13143** black people and about **7036** white people in jail in 1993. Plus, the average number of black people in jail is about **74** and the average number of white people in jail is about **65**. From these simple data, we can clearly find the pattern that the numbers of black people is twice as the numbers of white people in jail. Besides these discoveries, I also found that **Los Angeles County** has both the highest number of black people as well as the highest number of white people in jail. in addition, I discovered the ratio between black people and white people in jail in Las Angegles County in 2018, which is **1.948042**. From this data, it also proved that the population of black people who are in jail is still double than the population of white people who are in jail in recent years. Based on this evidence, I can assume that the proportionate incarceration is still happening in current jail system and the disproportion is affected by the difference in race since black people get double chance to get into the jail than white people.
+
+
+ * The year which has the *highest jail population count* in the United State
+```{r echo=FALSE}
+high_year 
+```
+* The average number of *Black people* in the jail incarceration across all the counties in 1993
+```{r echo=FALSE}
+mean_black_1993
+```
+* The average number of *White people* in the jail incarceration across all the counties in 1993
+```{r echo=FALSE}
+mean_white_1993
+```
+* The highest numbers in *Black people who are in jail* 
+```{r echo=FALSE}
+max_black_jail
+```
+* The highest numbers in *White people who are in jail*
+```{r echo=FALSE}
+max_white_jail
+```
+* The county has the highest number of *Black people who are in jail*
+```{r echo=FALSE}
+county_high_black
+```
+* The county has the highest number of *White people who are in jail*
+```{r echo=FALSE}
+county_high_white
+```
+* The ratio of *Black people who are in jail* to *White people who are in jail* in Los Angeles County in 2018
+```{r echo=FALSE}
+ratio_black_white
+```
+
+## Trends Over Time Chart
+```{r echo=FALSE}
+trend_chart
+```
+
+I want to include this chart because I want to discover the trends of the population count of black people who are in jail in the top two counties which has the most jail population count. I want to know whether there is an increased tendency in the population count of black people in jail because of the impact of racism. 
+This chart displays that the number of black people who are in jail has a peak from 1990 to 1995. However, the overall trend of the population count is dramatically decreasing after the peak from 1990 to 2020 in Los Angeles County and New York County, which implies that the inequality in the jail is eased now. 
+
+## Variable Comparison Chart
+```{r echo=FALSE}
+comapre_chart
+```
+
+I made this chart because I want to compare the population count of black and white people who are in jail in Los Angeles County that has the biggest jail population. I want to show the specific disproportion of number between black people and white people. 
+This chart displays the comparison of the population count between black people and white people. From the chart, we can see the the population of black people is always double than the population of white people in jail. For example, when the population count of black people is 8000, the population count of white people is about 4500. Based on this evidence, it is clearly to understand why there is a disproportion in the number of black people who are in jail and white people who are in jail.
+
+
+## Map
+```{r echo=FALSE}
+Amercia_map
+```
