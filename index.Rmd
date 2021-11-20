@@ -67,19 +67,48 @@ ratio_black_white
 trend_chart
 ```
 
-I want to include this chart because I want to discover the trends of the population count of black people who are in jail in the top two counties which has the most jail population count. I want to know whether there is an increased tendency in the population count of black people in jail because of the impact of racism. 
-This chart displays that the number of black people who are in jail has a peak from 1990 to 1995. However, the overall trend of the population count is dramatically decreasing after the peak from 1990 to 2020 in Los Angeles County and New York County, which implies that the inequality in the jail is eased now. 
+I want to include this chart because I want to discover the trends of the population 
+count of black people who are in jail in the top two counties which has the most jail 
+population count. I want to know whether there is an increased tendency in the population 
+count of black people in jail because of the impact of racism. 
+This chart displays that the number of black people who are in jail has a peak from 1990
+to 1995. However, the overall trend of the population count is dramatically decreasing 
+after the peak from 1990 to 2020 in Los Angeles County and New York County, which implies
+that the inequality in the jail is eased now. 
 
 ## Variable Comparison Chart
 ```{r echo=FALSE}
 comapre_chart
 ```
 
-I made this chart because I want to compare the population count of black and white people who are in jail in Los Angeles County that has the biggest jail population. I want to show the specific disproportion of number between black people and white people. 
-This chart displays the comparison of the population count between black people and white people. From the chart, we can see the the population of black people is always double than the population of white people in jail. For example, when the population count of black people is 8000, the population count of white people is about 4500. Based on this evidence, it is clearly to understand why there is a disproportion in the number of black people who are in jail and white people who are in jail.
+I made this chart because I want to compare the population count of black and 
+white people who are in jail in Los Angeles County that has the biggest jail 
+population. I want to show the specific disproportion of number between black 
+people and white people. 
+This chart displays the comparison of the population count between black people 
+and white people. From the chart, we can see the the population of black people 
+is always double than the population of white people in jail. For example, when 
+the population count of black people is 8000, the population count of white people
+is about 4500. Based on this evidence, it is clearly to understand why there is 
+a disproportion in the number of black people who are in jail and white people who
+are in jail. And, I can suggest that black people bear more social pressure and 
+experience more inequality in society since they are more likely to be caught in 
+prison.
 
 
 ## Map
 ```{r echo=FALSE}
 Amercia_map
+Amercia_map_2
 ```
+
+The reason why I include this chart is that I want to compare the distribution of
+white and black people who are in jail in the United State in 2013. I also want to 
+display which part of the United State contains the highest number of prisoners.
+From these two maps, we can notice that the highest number of black and white people
+who are in jail is located in the Southwest part of the United State, especially 
+in California. And, in the middle part of the east of the United State, the number of
+black and white people who are in jail are both the fewest. Based on these findings, the
+patterns of distribution of black and white people in jail are pretty similar in 2013
+even though the number of black people in jail are twice the number of white people
+in jail.

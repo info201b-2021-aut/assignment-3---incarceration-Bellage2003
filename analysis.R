@@ -101,9 +101,13 @@ trend_three
 comapre_chart <- ggplot(trend_three, aes(x = white_jail_pop, y = black_jail_pop)) +
   geom_point(aes(col = county_name)) +
   geom_smooth(formula = y ~ x,method = lm) +
-  labs(title = "The Comparison Between The Number of Black People And White People",
-       x = "The Population Count of White People", y="The Population Count of Black People", 
-       colour = "County With Highest Jail Population")
+  labs(title = "Comparing The Number of Black People And White People In Jail",
+       x = "The Number of White People In Jail", y="The Number of Black People In Jail", 
+       colour = "County With Highest Jail Population") +
+  theme(plot.title = element_text(size=9, face = "bold"), 
+        legend.title=element_text(size=9), axis.title = element_text(size=9))
+
+comapre_chart
 
 #Map--------------------------------------------------------------------------------------------------------
 trend_four <- data.frame(
@@ -127,8 +131,8 @@ Amercia_map <- ggplot(county_shape1, aes(x = long, y= lat, group = group)) +
   geom_polygon(aes(
     fill= black_jail_pop), 
     color = "white") +
-  scale_fill_gradient(name = "% in jail", low = "yellow", high = "red") +
-  labs(title = "Population of Black People In Jail") +
+  scale_fill_gradient(name = "Number of Black People In Jail", low = "yellow", high = "red") +
+  labs(title = "Map of Black People In Jail In 2013") +
   theme(
     axis.line = element_blank(),       
     axis.text = element_blank(),       
@@ -137,12 +141,41 @@ Amercia_map <- ggplot(county_shape1, aes(x = long, y= lat, group = group)) +
     plot.background = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(), 
-    panel.border = element_blank()
+    panel.border = element_blank(),
+    plot.title = element_text(size = 11, face = "bold"),
+    legend.title=element_text(size=7, face = "bold"), 
+    legend.text=element_text(size=6)
   ) +
   coord_map()
 
 Amercia_map
 
+county_shape2<-county_shape%>% 
+  filter(!is.na(county_shape$white_jail_pop))
+View(county_shape2)
+
+Amercia_map_2 <- ggplot(county_shape1, aes(x = long, y= lat, group = group)) +
+  geom_polygon(aes(
+    fill= white_jail_pop), 
+    color = "white") +
+  scale_fill_gradient(name = "Number of White People In Jail", low = "yellow", high = "red") +
+  labs(title = "Map of White People In Jail In 2013") +
+  theme(
+    axis.line = element_blank(),       
+    axis.text = element_blank(),       
+    axis.ticks = element_blank(), 
+    axis.title = element_blank(), 
+    plot.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), 
+    panel.border = element_blank(),
+    plot.title = element_text(size = 11, face = "bold"),
+    legend.title=element_text(size=7, face = "bold"), 
+    legend.text=element_text(size=6)
+  ) +
+  coord_map()
+
+Amercia_map_2
 
 
  
