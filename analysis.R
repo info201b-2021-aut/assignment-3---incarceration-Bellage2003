@@ -68,11 +68,14 @@ ratio_black_white
 
 
 # Trend Chart---------------------------------------------------------------------------------------
+
+#Five variables I am going to use in this project
 trend_one <- data.frame(
   trend %>% 
     select(year, county_name, total_jail_pop, black_jail_pop, white_jail_pop)
 )
 
+# Which two counties have the highest total jail population ?
 top_2_county <- trend_one %>% 
   group_by(county_name) %>% 
   summarize(max_total_pop = max(total_jail_pop)) %>% 
@@ -82,22 +85,24 @@ top_2_county <- trend_one %>%
 top_2_county
 # "Los Angeles County" "New York County"
 
-
+# Extract only these two counties
 trend_two <- trend_one %>% 
   filter(county_name %in% c("Los Angeles County","New York County"))
 
-
+# Make a trend over time chart for these two counties
 trend_chart <- ggplot(trend_two, aes(x=year, y=black_jail_pop)) + 
   geom_line(aes(col = county_name)) +
   labs(title = "A Trend in the Top Two Counties That Has the Highest Jail Population", 
       x = "Year", y = "The Population Count of Black People in Jail", colour = "County's Name") 
 
 # Variable Comparison Chart----------------------------------------------------------------------------
+
+# Extract only Los Angeles County for comparing the proportion between white and black people
 trend_three <- trend_one %>% 
   filter(county_name == "Los Angeles County")
 trend_three
 
-
+# Make a comparsion chart for white and black people
 comapre_chart <- ggplot(trend_three, aes(x = white_jail_pop, y = black_jail_pop)) +
   geom_point(aes(col = county_name)) +
   geom_smooth(formula = y ~ x,method = lm) +
@@ -110,6 +115,8 @@ comapre_chart <- ggplot(trend_three, aes(x = white_jail_pop, y = black_jail_pop)
 comapre_chart
 
 #Map--------------------------------------------------------------------------------------------------------
+
+# Extract the data in 2013
 trend_four <- data.frame(
   trend_one %>% 
     filter(year == "2013") %>% 
@@ -127,6 +134,7 @@ county_shape1<-county_shape%>%
   filter(!is.na(county_shape$black_jail_pop))
 View(county_shape1)
 
+# One map made for black people's jail population
 Amercia_map <- ggplot(county_shape1, aes(x = long, y= lat, group = group)) +
   geom_polygon(aes(
     fill= black_jail_pop), 
@@ -154,6 +162,7 @@ county_shape2<-county_shape%>%
   filter(!is.na(county_shape$white_jail_pop))
 View(county_shape2)
 
+# One map made for white people's jail population
 Amercia_map_2 <- ggplot(county_shape1, aes(x = long, y= lat, group = group)) +
   geom_polygon(aes(
     fill= white_jail_pop), 
